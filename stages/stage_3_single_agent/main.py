@@ -88,6 +88,22 @@ LEGAL_KNOWLEDGE = [
 # ---------------------------------------------------------------------------
 # Tools
 # ---------------------------------------------------------------------------
+@tool
+def search_case_law(keywords: str) -> str:
+    """Tìm kiếm án lệ theo từ khóa.
+    
+    Args:
+        keywords: Từ khóa tìm kiếm
+    """
+    cases = {
+        "breach": "Hadley v. Baxendale (1854) - Consequential damages",
+        "negligence": "Donoghue v. Stevenson (1932) - Duty of care",
+        "contract": "Carlill v. Carbolic Smoke Ball Co (1893) - Unilateral contract",
+    }
+    for key, case in cases.items():
+        if key in keywords.lower():
+            return case
+    return "Không tìm thấy án lệ phù hợp"
 
 @tool
 def search_legal_database(query: str) -> str:
@@ -205,7 +221,7 @@ async def main():
     print("-" * 70)
 
     llm = get_llm()
-    graph = create_react_agent(model=llm, tools=TOOLS, prompt=SYSTEM_PROMPT)
+    graph = create_react_agent(model=llm, tools=TOOLS, prompt=SYSTEM_PROMPT, verbose=True)
 
     inputs = {"messages": [{"role": "user", "content": QUESTION}]}
 
