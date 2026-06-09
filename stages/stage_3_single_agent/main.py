@@ -188,7 +188,7 @@ def check_compliance_requirements(industry: str, company_size: str) -> str:
     )
 
 
-TOOLS = [search_legal_database, calculate_penalty, check_compliance_requirements]
+TOOLS = [search_legal_database, calculate_penalty, check_compliance_requirements, search_case_law]
 
 QUESTION = (
     "A tech startup with $5M revenue was caught sharing user data without consent "
