@@ -332,7 +332,7 @@ Customer Agent (10100) → Law Agent (10101)
 **Bước 1:** Khởi động toàn bộ hệ thống
 
 ```bash
-./start_all.sh
+bash start_all.sh
 ```
 
 Chờ ~10 giây để tất cả services khởi động.
